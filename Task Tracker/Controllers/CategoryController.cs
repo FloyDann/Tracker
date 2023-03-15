@@ -45,10 +45,7 @@ namespace Task_Tracker.Controllers
         // GET: Category/AddOrEdit
         public IActionResult AddOrEdit(int id=0)
         {
-            if (id == 0)
-                return View(new Category());
-            else
-                return View(_context.Categories.Find(id));
+            return id == 0 ? View(new Category()) : (IActionResult)View(_context.Categories.Find(id));
         }
 
         // POST: Category/AddOrEdit
@@ -61,9 +58,14 @@ namespace Task_Tracker.Controllers
             if (ModelState.IsValid)
             {
                 if(category.CategoryId == 0)
-                _context.Add(category);
+                {
+                    _context.Add(category);
+                }
                 else
+                {
                     _context.Update(category);
+                }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

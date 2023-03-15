@@ -270,3 +270,12 @@ C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\runtimes\
 C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Syncfusion.Licensing.dll
 C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Syncfusion.EJ2.dll
 C:\Users\danil\source\repos\Task Tracker\Task Tracker\obj\Debug\net6.0\Task Tracker.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\SendGrid.dll
+C:\Users\danil\source\repos\Task Tracker\Task Tracker\bin\Debug\net6.0\StarkbankEcdsa.dll

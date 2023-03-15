@@ -22,7 +22,7 @@ namespace Task_Tracker.Models
         public string? TitleWithIcon { 
             get
             {
-                return this.Icon + " " + this.Title;
+                return Icon + " " + Title;
             }
         }
     }

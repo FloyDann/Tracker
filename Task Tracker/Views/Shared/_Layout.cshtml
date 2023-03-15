@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+
+@*@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
+    <title>Traffic manager</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     @*<link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/20.1.55/material.css" />*@
     <link href="https://cdn.syncfusion.com/ej2/20.1.55/bootstrap5-dark.css" rel="stylesheet" />
@@ -25,7 +29,6 @@
                 <div>
                     <i class="fa-solid fa-bell"></i>
                     <i class="fa-solid fa-message"></i>
-                    <img class="profile-pic" src="~/profile.jpg" />
                 </div>
             </div>
         </nav>

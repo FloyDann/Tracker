@@ -20,32 +20,32 @@ namespace Task_Tracker.Controllers
         public async Task<ActionResult> Index()
         {
             //Last 7 Days
-            DateTime StartDate = DateTime.Today.AddDays(-6);
-            DateTime EndDate = DateTime.Today;
+            var StartDate = DateTime.Today.AddDays(-6);
+            var EndDate = DateTime.Today;
 
-            List<Models.Transaction> SelectedTransactions = await _context.Transactions
+            var SelectedTransactions = await _context.Transactions
                 .Include(x => x.Category)
                 .Where(y => y.Date >= StartDate && y.Date <= EndDate)
                 .ToListAsync();
 
             //Total Income
-            int TotalIncome = SelectedTransactions
+            var TotalIncome = SelectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .Sum(j => j.Amount);
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-Us");
+            var culture = CultureInfo.CreateSpecificCulture("en-Us");
             ViewBag.TotalIncome = TotalIncome.ToString("C0", culture);
 
             //Total Exp
-            int TotalExp = SelectedTransactions
+            var TotalExp = SelectedTransactions
                 .Where(i => i.Category.Type == "Exp")
                 .Sum(j => j.Amount);
             ViewBag.TotalExp = TotalExp.ToString("C0", culture);
 
             //Balance
-            int Balance = TotalIncome - TotalExp;
+            var Balance = TotalIncome - TotalExp;
            // CultureInfo culture= CultureInfo.CreateSpecificCulture("en-Us");
             culture.NumberFormat.CurrencyNegativePattern = 1;
-            ViewBag.Balance = String.Format(culture , "{0:C0}" , Balance);
+            ViewBag.Balance = string.Format(culture , "{0:C0}" , Balance);
 
             //Doughnut Chart - Expense By Category
             ViewBag.DoughnutChartData = SelectedTransactions
@@ -53,16 +53,16 @@ namespace Task_Tracker.Controllers
                 .GroupBy(j => j.Category.CategoryId)
                 .Select(k => new
                 {
-                    categoryTitleWithIcon = k.First().Category.Icon+" " + k.First().Category.Icon,
+                    categoryTitleWithIcon = k.First().Category.Icon+" " + k.First().Category.Title,
                     amount = k.Sum(j => j.Amount),
                     formattedAmount = k.Sum(j => j.Amount).ToString("C0"),
                 })
                 .OrderByDescending(l=>l.amount)
                 .ToList();
-
+            var a = ViewBag.DoughnutChartData;
             //Spline Chart - Income vs Exp
             //Income
-            List<SplineChartData> IncomeSummary = SelectedTransactions
+            var IncomeSummary = SelectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
@@ -73,7 +73,7 @@ namespace Task_Tracker.Controllers
                 .ToList();
 
             //Exp
-            List<SplineChartData> ExpSummary = SelectedTransactions
+            var ExpSummary = SelectedTransactions
                 .Where(i => i.Category.Type == "Exp")
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
@@ -84,7 +84,7 @@ namespace Task_Tracker.Controllers
                 .ToList();
 
             //Combine Income & Exp
-            string[] Last7Days = Enumerable.Range(0, 7)
+            var Last7Days = Enumerable.Range(0, 7)
                 .Select(i => StartDate.AddDays(i).ToString("dd-MMM"))
                 .ToArray();
 
@@ -95,7 +95,7 @@ namespace Task_Tracker.Controllers
                                       from exp in dayExpJoined.DefaultIfEmpty()
                                       select new
                                       {
-                                          day = day,
+                                          day,
                                           income = income == null ? 0 : income.income,
                                           exp = exp == null ? 0 : exp.exp,
                                       };
@@ -112,7 +112,7 @@ namespace Task_Tracker.Controllers
     }
     public class SplineChartData
     {
-        public string day;
+        public string? day;
         public int income;
         public int exp;
     }

@@ -37,8 +37,11 @@ namespace Task_Tracker.Models
         {
             get
             {
+
                 //CultureInfo culture = CultureInfo.CreateSpecificCulture("en-Us");
-                return ((Category == null || Category.Type == "Expense") ? "- " : "+ ") + Amount.ToString("C0");
+                var a = ((Category == null || Category.Type == "Exp") ? "- " : "+ ") + Amount.ToString("C0");
+                return a;
+                //    return ((Category == null || Category.Type == "Expense") ? "- " : "+ ") + Amount.ToString("C0");
             }
         }
 
